@@ -4,6 +4,7 @@ import { Search, X, MapPin, Compass } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Fuse from 'fuse.js';
 import { statesData } from '../../data/statesData';
+import { stateHeroImages } from '../../data/heroImages';
 
 /* ── Build a flat search index of all states + destinations ── */
 const buildSearchIndex = () => {
@@ -16,7 +17,7 @@ const buildSearchIndex = () => {
       name: state.state,
       subtitle: state.tagline,
       code: state.code,
-      image: state.heroImage || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=200&h=150&fit=crop',
+      image: stateHeroImages[state.code] || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=200&h=150&fit=crop',
     });
 
     // Add each destination under that state
@@ -27,7 +28,7 @@ const buildSearchIndex = () => {
         subtitle: `${dest.location} · ${state.state}`,
         code: state.code,
         category: dest.category,
-        image: state.heroImage || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=200&h=150&fit=crop',
+        image: stateHeroImages[state.code] || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=200&h=150&fit=crop',
       });
     });
 
@@ -39,7 +40,7 @@ const buildSearchIndex = () => {
         name: gemName,
         subtitle: `Hidden Gem · ${state.state}`,
         code: state.code,
-        image: state.heroImage || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=200&h=150&fit=crop',
+        image: stateHeroImages[state.code] || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=200&h=150&fit=crop',
       });
     });
   });

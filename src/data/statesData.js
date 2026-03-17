@@ -2120,61 +2120,61 @@ export const statesData = [
         "name": "Ujjayanta Palace",
         "location": "Agartala, West Tripura",
         "category": "historical",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Ujjayanta_Palace_Agartala.jpg/800px-Ujjayanta_Palace_Agartala.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Ujjayanta_palace_Tripura_State_Museum_Agartala_India.jpg/500px-Ujjayanta_palace_Tripura_State_Museum_Agartala_India.jpg"
       },
       {
         "name": "Neermahal",
         "location": "Rudrasagar Lake, Sepahijala",
         "category": "historical",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Neermahal_Water_Palace_Tripura.jpg/800px-Neermahal_Water_Palace_Tripura.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/Neer_Mahal%2C_the_water_palace_of_Tripura_02.jpg"
       },
       {
         "name": "Unakoti",
         "location": "Unakoti district",
         "category": "historical",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Unakoti_Rock_Carvings.jpg/800px-Unakoti_Rock_Carvings.jpg"
+        "image": "https://i2.wp.com/aravindgundumane.com/wp-content/uploads/2020/02/DSC_5885.jpg?fit=2048%2C1367&ssl=1"
       },
       {
         "name": "Tripura Sundari Temple",
         "location": "Udaipur, Gomati",
         "category": "temple",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Tripura_Sundari_Temple_Udaipur.jpg/800px-Tripura_Sundari_Temple_Udaipur.jpg"
+        "image": "https://s7ap1.scene7.com/is/image/incredibleindia/tripura-sundari-temple-agartala-tripura-2-attr-hero?qlt=82&ts=1726651006473"
       },
       {
         "name": "Jampui Hills",
         "location": "North Tripura",
         "category": "hillstation",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Jampui_Hills_Tripura.jpg/800px-Jampui_Hills_Tripura.jpg"
+        "image": "https://i.ytimg.com/vi/DgwHGwaEGyE/maxresdefault.jpg"
       },
       {
         "name": "Sepahijala Wildlife Sanctuary",
         "location": "Sepahijala district",
         "category": "wildlife",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Spectacled_Monkey_Sepahijala.jpg/800px-Spectacled_Monkey_Sepahijala.jpg"
+        "image": "https://s7ap1.scene7.com/is/image/incredibleindia/sepahijala-wildlife-sanctuary-agartala-tripura-3-attr-hero?qlt=82&ts=1726650971869"
       },
       {
         "name": "Dumboor Lake",
         "location": "Dhalai district",
         "category": "nature",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dumboor_Lake_Tripura.jpg/800px-Dumboor_Lake_Tripura.jpg"
+        "image": "https://images.unsplash.com/photo-1660541547241-83e3f9736eb9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       },
       {
         "name": "Chabimura Rock Carvings",
         "location": "Gomati district",
         "category": "historical",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Chabimura_Rock_Carvings_Tripura.jpg/800px-Chabimura_Rock_Carvings_Tripura.jpg"
+        "image": "https://www.shutterstock.com/image-photo/stone-carving-deities-chabimura-tripura-600nw-2662418701.jpg"
       },
       {
         "name": "Heritage Park",
         "location": "Agartala, West Tripura",
         "category": "cultural",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Heritage_Park_Agartala.jpg/800px-Heritage_Park_Agartala.jpg"
+        "image": "https://s7ap1.scene7.com/is/image/incredibleindia/heritage-park-agartala-tripura-1-attr-hero?qlt=82&ts=1726651136773"
       },
       {
         "name": "Pilak Archaeological Site",
         "location": "South Tripura",
         "category": "historical",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pilak_Archaeological_Site_Tripura.jpg/800px-Pilak_Archaeological_Site_Tripura.jpg"
+        "image": "https://www.tourmyindia.com/blog//wp-content/uploads/2023/08/Buddhist-Archaeological-Site-of-Pilak.jpg"
       }
     ],
     "hiddenGems": [
@@ -2726,9 +2726,3 @@ export const statesData = [
   }
 ];
 
-/* ── Merge high-quality hero images into each state ── */
-statesData.forEach(state => {
-  if (stateHeroImages[state.code]) {
-    state.heroImage = stateHeroImages[state.code];
-  }
-});

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Calendar, IndianRupee, Utensils, ArrowLeft, Shield, Map } from 'lucide-react';
 import { statesData } from '../data/statesData';
+import { stateHeroImages } from '../data/heroImages';
 import SectionHeading from '../components/common/SectionHeading';
 import FilterBar, { getCategoryStyles, CATEGORIES } from '../components/common/FilterBar';
 import InteractiveMap from '../components/common/InteractiveMap';
@@ -158,7 +159,7 @@ const StateDetail = () => {
       <div className="relative h-[60vh] min-h-[500px] w-full">
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src={state.heroImage || `https://images.unsplash.com/photo-1590050752117-238cb12bc4cc?q=80&w=1600&h=900&fit=crop`} 
+            src={stateHeroImages[state.code] || `https://images.unsplash.com/photo-1590050752117-238cb12bc4cc?q=80&w=1600&h=900&fit=crop`} 
             alt={state.state} 
             className="w-full h-full object-cover"
             onError={getImageErrorHandler('hero')}

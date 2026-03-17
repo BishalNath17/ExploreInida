@@ -1,26 +1,26 @@
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Jenkins",
-    role: "Solo Traveler",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Priya Sharma",
+    role: "Travel Blogger",
+    text: "Explore India Smartly helped me discover hidden gems I never knew existed. The budget planner alone saved me thousands on my Rajasthan trip!",
     rating: 5,
-    text: "Explore India Smartly's budget estimator was scarily accurate. It helped me plan a 3-week trip across Rajasthan without breaking the bank. The hidden gem recommendations were the highlight of my trip."
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&q=80"
   },
   {
     id: 2,
-    name: "Vikram Sharma",
-    role: "Digital Nomad",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Arjun Mehta",
+    role: "Solo Backpacker",
+    text: "The safety tips section is a lifesaver. I felt so much more confident traveling through Northeast India knowing what to expect and who to call.",
     rating: 5,
-    text: "The safety tips and real-time alerts gave me so much peace of mind. I've recommended this platform to all my expat friends. It's truly the most comprehensive guide to India I've ever used."
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&q=80"
   },
   {
     id: 3,
-    name: "Elena Rossi",
-    role: "Photography Enthusiast",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Ananya Reddy",
+    role: "Family Traveler",
+    text: "We planned our entire family vacation using this site. The state-by-state guides with local food recommendations made our Kerala trip unforgettable.",
     rating: 4,
-    text: "Finding off-beat locations in Meghalaya was a breeze. The interface is stunning and the information is incredibly detailed. A massive upgrade from reading outdated travel blogs."
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&q=80"
   }
 ];

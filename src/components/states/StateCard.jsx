@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getImageErrorHandler } from '../../utils/imageUtils';
+import { stateHeroImages } from '../../data/heroImages';
 
 const StateCard = ({ state, index }) => {
   return (
@@ -19,7 +20,7 @@ const StateCard = ({ state, index }) => {
         <div className="absolute inset-0 w-full h-full">
           {/* Using placeholder image since real data will be added later */}
           <img 
-            src={state.heroImage || `https://images.unsplash.com/photo-1590050752117-238cb12bc4cc?q=80&w=400&h=300&fit=crop`} 
+            src={stateHeroImages[state.code] || `https://images.unsplash.com/photo-1590050752117-238cb12bc4cc?q=80&w=400&h=300&fit=crop`} 
             alt={state.state} 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
             loading="lazy"
