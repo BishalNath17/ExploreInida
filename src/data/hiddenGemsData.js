@@ -6,7 +6,7 @@ export const hiddenGemsData = [
     stateCode: "IN-AP",
     type: "Historical",
     description: "Known as the Grand Canyon of India, Gandikota features a stunning gorge formed by the river Pennar cutting through the Erramala hills.",
-    image: "https://images.unsplash.com/photo-1590077428593-a55bb07c4665?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Indian_Grand_Canyon_Sudhakar_Bichali.jpg/1280px-Indian_Grand_Canyon_Sudhakar_Bichali.jpg"
   },
   {
     id: "mechuka",
@@ -15,7 +15,7 @@ export const hiddenGemsData = [
     stateCode: "IN-AR",
     type: "Mountain",
     description: "A breathtaking valley often described as a piece of heaven, situated very close to the Indo-China border with untouched natural beauty.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Mechuka_overview_2.jpg/1280px-Mechuka_overview_2.jpg"
   },
   {
     id: "gurez-valley",
@@ -24,7 +24,7 @@ export const hiddenGemsData = [
     stateCode: "IN-JK",
     type: "Adventure",
     description: "A pristine high-altitude valley, nestled in the Himalayas, known for its snow-capped peaks and the bubbling Kishanganga River.",
-    image: "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Gurez_valley_Kashmir.jpg/1280px-Gurez_valley_Kashmir.jpg"
   },
   {
     id: "dhanushkodi",
@@ -33,7 +33,7 @@ export const hiddenGemsData = [
     stateCode: "IN-TN",
     type: "Beach",
     description: "An abandoned ghost town at the south-eastern tip of Pamban Island, bordered by the Bay of Bengal and Indian Ocean.",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Final_Dhanush_002.jpg"
   },
   {
     id: "krang-suri",
@@ -42,7 +42,7 @@ export const hiddenGemsData = [
     stateCode: "IN-ML",
     type: "Waterfall",
     description: "A magical waterfall with crystal clear blue water, tucked away in the Jaintia Hills of Meghalaya — a true hidden paradise.",
-    image: "https://images.unsplash.com/photo-1432405972618-c6b0cfba504e?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Krang_Suri_falls.jpg/1280px-Krang_Suri_falls.jpg"
   },
   {
     id: "bhimbetka",
@@ -51,7 +51,7 @@ export const hiddenGemsData = [
     stateCode: "IN-MP",
     type: "Historical",
     description: "A UNESCO World Heritage Site consisting of seven hills and over 750 rock shelters with prehistoric cave paintings spanning 30,000 years.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Rock_Shelter_8%2C_Bhimbetka_02.jpg/1280px-Rock_Shelter_8%2C_Bhimbetka_02.jpg"
   },
   {
     id: "ziro-valley",
@@ -60,7 +60,7 @@ export const hiddenGemsData = [
     stateCode: "IN-AR",
     type: "Mountain",
     description: "A UNESCO World Heritage tentative site famous for its Apatani tribal culture and vast stretches of rice fields surrounded by pine-covered hills.",
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/A_cross_section_of_luch_green_valley_of_Ziro.jpg/1280px-A_cross_section_of_luch_green_valley_of_Ziro.jpg"
   },
   {
     id: "sandakphu",
@@ -69,7 +69,7 @@ export const hiddenGemsData = [
     stateCode: "IN-WB",
     type: "Adventure",
     description: "The highest peak in West Bengal offering a panoramic view of four of the world's five highest peaks including Everest and Kanchenjunga.",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Sandakphu.jpg"
   },
   {
     id: "hogenakkal",
@@ -78,6 +78,6 @@ export const hiddenGemsData = [
     stateCode: "IN-TN",
     type: "Waterfall",
     description: "Often called the 'Niagara of India', this stunning waterfall on the Kaveri river offers coracle rides through misty carbonite rock gorges.",
-    image: "https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=800&q=80"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Hogenakkal_Falls_Close.jpg/1280px-Hogenakkal_Falls_Close.jpg"
   }
 ];
