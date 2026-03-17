@@ -34,6 +34,7 @@ const Testimonials = () => {
                   src={review.image} 
                   alt={review.name} 
                   className="w-12 h-12 rounded-full object-cover border-2 border-brand-cyan/30"
+                  onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&q=80'; e.target.onerror = null; }}
                 />
                 <div>
                   <h4 className="text-white font-bold text-sm">{review.name}</h4>

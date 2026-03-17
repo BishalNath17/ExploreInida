@@ -50,11 +50,13 @@ const About = () => {
                 src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800&fit=crop" 
                 alt="Kerala Travel" 
                 className="rounded-3xl shadow-2xl rotate-3"
+                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80'; e.target.onerror = null; }}
               />
               <img 
                 src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=400&fit=crop" 
                 alt="Traveler" 
                 className="absolute -bottom-10 -left-10 w-48 h-48 lg:w-64 lg:h-64 rounded-3xl shadow-2xl -rotate-6 border-4 border-brand-navy object-cover"
+                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&q=80'; e.target.onerror = null; }}
               />
             </div>
           </div>

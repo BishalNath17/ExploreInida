@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import WaveDivider from '../layout/WaveDivider';
 import SearchBar from '../common/SearchBar';
+import { getImageErrorHandler } from '../../utils/imageUtils';
 
 const HeroSection = () => {
   return (
@@ -9,9 +10,10 @@ const HeroSection = () => {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Taj_Mahal_in_March_2004.jpg/1920px-Taj_Mahal_in_March_2004.jpg" 
+          src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1920&q=80" 
           alt="Taj Mahal in India" 
           className="w-full h-full object-cover scale-105"
+          onError={getImageErrorHandler('hero')}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/80 via-brand-navy/60 to-brand-navy/90"></div>
       </div>
@@ -60,7 +62,12 @@ const HeroSection = () => {
         transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
         className="hidden lg:block absolute top-[25%] left-[5%] glass-card p-2 rounded-xl rotate-[-6deg]"
       >
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Pangong_lake%2C_ladakh.jpg/800px-Pangong_lake%2C_ladakh.jpg" alt="Pangong Lake" className="w-[200px] h-[150px] object-cover rounded-lg" />
+        <img 
+          src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&q=80" 
+          alt="Pangong Lake" 
+          className="w-[200px] h-[150px] object-cover rounded-lg"
+          onError={getImageErrorHandler('hero')}
+        />
       </motion.div>
 
       <motion.div 
@@ -68,7 +75,12 @@ const HeroSection = () => {
         transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
         className="hidden lg:block absolute bottom-[15%] right-[5%] glass-card p-2 rounded-xl flex-col items-center rotate-[4deg]"
       >
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kerala_-_Gods_own_Country.jpg/800px-Kerala_-_Gods_own_Country.jpg" alt="Kerala Backwaters" className="w-[200px] h-[150px] object-cover rounded-lg" />
+        <img 
+          src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&q=80" 
+          alt="Kerala Backwaters" 
+          className="w-[200px] h-[150px] object-cover rounded-lg"
+          onError={getImageErrorHandler('hero')}
+        />
       </motion.div>
 
       <WaveDivider />

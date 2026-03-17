@@ -7,6 +7,7 @@ import SectionHeading from '../components/common/SectionHeading';
 import FilterBar, { getCategoryStyles, CATEGORIES } from '../components/common/FilterBar';
 import InteractiveMap from '../components/common/InteractiveMap';
 import { stateCoordinates, destinationCoordinates } from '../data/coordinates';
+import { getImageErrorHandler } from '../utils/imageUtils';
 
 /* ── Category-based Unsplash image pools ── */
 const CATEGORY_IMAGES = {
@@ -90,6 +91,9 @@ const CATEGORY_DESCRIPTIONS = {
 
 /* ── Deterministic image picker ── */
 const getDestinationImage = (dest, idx) => {
+  // If destination has a specific unique image, use it!
+  if (dest.image) return dest.image;
+
   // Use a hash of the name to deterministically pick an image so re-renders don't change the image
   const nameHash = dest.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   const pool = CATEGORY_IMAGES[dest.category] || CATEGORY_IMAGES.nature;
@@ -157,6 +161,7 @@ const StateDetail = () => {
             src={state.heroImage || `https://images.unsplash.com/photo-1590050752117-238cb12bc4cc?q=80&w=1600&h=900&fit=crop`} 
             alt={state.state} 
             className="w-full h-full object-cover"
+            onError={getImageErrorHandler('hero')}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-transparent"></div>
         </div>
@@ -254,7 +259,7 @@ const StateDetail = () => {
                             alt={dest.name}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                             loading="lazy"
-                            onError={(e) => { e.target.src = FALLBACK_IMG; }}
+                            onError={getImageErrorHandler('state', dest.category)}
                           />
                           {/* Gradient overlay for readability */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

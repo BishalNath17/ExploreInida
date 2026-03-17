@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { getImageErrorHandler } from '../../utils/imageUtils';
 
 const StateCard = ({ state, index }) => {
   return (
@@ -22,6 +23,7 @@ const StateCard = ({ state, index }) => {
             alt={state.state} 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
             loading="lazy"
+            onError={getImageErrorHandler('hero')}
           />
         </div>
         

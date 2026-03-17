@@ -4,7 +4,7 @@ export const destinationsData = [
     name: "Taj Mahal",
     location: "Agra, Uttar Pradesh",
     stateCode: "IN-UP",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Taj_Mahal_in_March_2004.jpg/800px-Taj_Mahal_in_March_2004.jpg",
+    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80",
     rating: 4.9
   },
   {
@@ -12,7 +12,7 @@ export const destinationsData = [
     name: "Pangong Lake",
     location: "Ladakh",
     stateCode: "IN-LA",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Pangong_lake%2C_ladakh.jpg/800px-Pangong_lake%2C_ladakh.jpg",
+    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80",
     rating: 4.8
   },
   {
@@ -20,7 +20,7 @@ export const destinationsData = [
     name: "Hampi Monuments",
     location: "Karnataka",
     stateCode: "IN-KA",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Hampi_virupaksha_temple.jpg/800px-Hampi_virupaksha_temple.jpg",
+    image: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800&q=80",
     rating: 4.7
   },
   {
@@ -28,7 +28,23 @@ export const destinationsData = [
     name: "Alleppey Backwaters",
     location: "Kerala",
     stateCode: "IN-KL",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kerala_-_Gods_own_Country.jpg/800px-Kerala_-_Gods_own_Country.jpg",
+    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80",
     rating: 4.8
+  },
+  {
+    id: "varanasi",
+    name: "Varanasi Ghats",
+    location: "Varanasi, Uttar Pradesh",
+    stateCode: "IN-UP",
+    image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
+    rating: 4.8
+  },
+  {
+    id: "jaipur",
+    name: "Hawa Mahal",
+    location: "Jaipur, Rajasthan",
+    stateCode: "IN-RJ",
+    image: "https://images.unsplash.com/photo-1599423300746-b62533397364?w=800&q=80",
+    rating: 4.7
   }
 ];
