@@ -24,13 +24,15 @@ const BudgetPlanner = () => {
 
     // Parse base budget e.g., "₹1,500 - ₹3,500 per day"
     const budgetStr = stateInfo.budget;
-    const matches = budgetStr.match(/\d+(,\d+)?/g);
+    const matches = budgetStr.replace(/,/g, '').match(/\d+/g);
     
     let baseBudget = 2500; // default fallback
     if (matches && matches.length >= 2) {
-      const min = parseInt(matches[0].replace(/,/g, ''));
-      const max = parseInt(matches[1].replace(/,/g, ''));
+      const min = parseInt(matches[0]);
+      const max = parseInt(matches[1]);
       baseBudget = (min + max) / 2;
+    } else if (matches && matches.length === 1) {
+      baseBudget = parseInt(matches[0]);
     }
 
     // Adjust based on style

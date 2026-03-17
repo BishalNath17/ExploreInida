@@ -1,3 +1,5 @@
+import { stateHeroImages } from './heroImages.js';
+
 export const statesData = [
   {
     "state": "Andhra Pradesh",
@@ -55,7 +57,6 @@ export const statesData = [
         "category": "historical"
       }
     ],
-    "heroImage": "https://images.unsplash.class/photo-...",
     "hiddenGems": [
       "Gandikota",
       "Belum Caves",
@@ -2405,3 +2406,10 @@ export const statesData = [
     "localFood": ["Pondicherry Fish Curry", "Crepes", "French Baguettes", "Filter Coffee"]
   }
 ];
+
+/* ── Merge high-quality hero images into each state ── */
+statesData.forEach(state => {
+  if (stateHeroImages[state.code]) {
+    state.heroImage = stateHeroImages[state.code];
+  }
+});

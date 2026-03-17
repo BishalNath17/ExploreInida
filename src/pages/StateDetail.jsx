@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { MapPin, Calendar, IndianRupee, Utensils, ArrowLeft, Shield } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Calendar, IndianRupee, Utensils, ArrowLeft, Shield, Map } from 'lucide-react';
 import { statesData } from '../data/statesData';
 import SectionHeading from '../components/common/SectionHeading';
 import FilterBar, { getCategoryStyles, CATEGORIES } from '../components/common/FilterBar';
+import InteractiveMap from '../components/common/InteractiveMap';
+import { stateCoordinates, destinationCoordinates } from '../data/coordinates';
 
 /* ── Category-based Unsplash image pools ── */
 const CATEGORY_IMAGES = {
@@ -75,32 +77,34 @@ const CATEGORY_IMAGES = {
 
 /* ── Category-keyed description templates ── */
 const CATEGORY_DESCRIPTIONS = {
-  temple: (name, loc) => `A revered spiritual landmark in ${loc.split(',')[0]}, ${name} draws pilgrims and travelers seeking blessings and architectural grandeur.`,
-  historical: (name, loc) => `Step back in time at ${name} — a storied monument in ${loc.split(',')[0]} that echoes with centuries of heritage and fascinating tales.`,
-  wildlife: (name, loc) => `Home to rare and majestic species, ${name} in ${loc.split(',')[0]} offers thrilling safaris and close encounters with nature's finest.`,
-  nature: (name, loc) => `Immerse yourself in the breathtaking natural beauty of ${name}, nestled in ${loc.split(',')[0]} — a paradise for photographers and peace seekers.`,
-  beach: (name, loc) => `Sun-kissed shores and turquoise waters await you at ${name} in ${loc.split(',')[0]} — perfect for relaxation and coastal adventures.`,
-  hillstation: (name, loc) => `Escape to the cool, misty heights of ${name} in ${loc.split(',')[0]}, where panoramic views and serene trails rejuvenate the soul.`,
-  cultural: (name, loc) => `Discover the vibrant traditions and living heritage of ${name} in ${loc.split(',')[0]} — a cultural experience you won't forget.`,
-  adventure: (name, loc) => `Feel the adrenaline rush at ${name} in ${loc.split(',')[0]}, offering world-class adventure activities amidst stunning landscapes.`,
+  temple: (name, loc) => `A revered spiritual landmark in ${loc?.split(',')[0]}, ${name} draws pilgrims and travelers seeking blessings and architectural grandeur.`,
+  historical: (name, loc) => `Step back in time at ${name} — a storied monument in ${loc?.split(',')[0]} that echoes with centuries of heritage and fascinating tales.`,
+  wildlife: (name, loc) => `Home to rare and majestic species, ${name} in ${loc?.split(',')[0]} offers thrilling safaris and close encounters with nature's finest.`,
+  nature: (name, loc) => `Immerse yourself in the breathtaking natural beauty of ${name}, nestled in ${loc?.split(',')[0]} — a paradise for photographers and peace seekers.`,
+  beach: (name, loc) => `Sun-kissed shores and turquoise waters await you at ${name} in ${loc?.split(',')[0]} — perfect for relaxation and coastal adventures.`,
+  hillstation: (name, loc) => `Escape to the cool, misty heights of ${name} in ${loc?.split(',')[0]}, where panoramic views and serene trails rejuvenate the soul.`,
+  cultural: (name, loc) => `Discover the vibrant traditions and living heritage of ${name} in ${loc?.split(',')[0]} — a cultural experience you won't forget.`,
+  adventure: (name, loc) => `Feel the adrenaline rush at ${name} in ${loc?.split(',')[0]}, offering world-class adventure activities amidst stunning landscapes.`,
   hiddenGem: (name) => `A hidden gem waiting to be discovered — ${name} offers an untouched, off-the-beaten-path experience far from the tourist crowds.`
 };
 
 /* ── Deterministic image picker ── */
 const getDestinationImage = (dest, idx) => {
+  // Use a hash of the name to deterministically pick an image so re-renders don't change the image
+  const nameHash = dest.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   const pool = CATEGORY_IMAGES[dest.category] || CATEGORY_IMAGES.nature;
-  const photoId = pool[idx % pool.length];
-  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&q=80&w=600&h=400`;
+  // Combine index and hash to avoid adjacent dupes but maintain stability
+  const photoId = pool[(nameHash + idx) % pool.length];
+  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&q=80&w=800&h=600`;
 };
 
 const getDescription = (dest) => {
-  // Prefer whySpecial (from UT hidden gems) when available
   if (dest._whySpecial) return dest._whySpecial;
   const fn = CATEGORY_DESCRIPTIONS[dest.category] || CATEGORY_DESCRIPTIONS.nature;
-  return fn(dest.name, dest.location);
+  return fn(dest.name, dest.location || 'this state');
 };
 
-const FALLBACK_IMG = 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=600&h=400&fit=crop';
+const FALLBACK_IMG = 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&h=600&fit=crop';
 
 const StateDetail = () => {
   const { code } = useParams();
@@ -111,13 +115,16 @@ const StateDetail = () => {
     if (state) {
       document.title = `${state.state} Travel Guide | Explore India Smartly`;
     }
-  }, [state]);
+    // Scroll to top on navigation to ensure clean view
+    window.scrollTo(0, 0);
+  }, [state, code]);
 
   if (!state) {
     return (
-      <div className="min-h-screen pt-32 text-center bg-brand-navy">
-        <h2 className="text-3xl text-white font-bold mb-4">State Not Found</h2>
-        <Link to="/states" className="text-brand-cyan hover:underline">Return to All States</Link>
+      <div className="min-h-screen pt-32 flex flex-col items-center justify-center bg-brand-navy">
+        <h2 className="text-3xl text-white font-bold mb-4">State/Destination Not Found</h2>
+        <p className="text-gray-400 mb-6 max-w-md text-center">We couldn't find the location you're looking for. It might have been moved or removed.</p>
+        <Link to="/states" className="px-6 py-3 bg-brand-cyan hover:bg-cyan-500 text-brand-navy font-bold rounded-xl transition-colors">Return to All Destinations</Link>
       </div>
     );
   }
@@ -127,7 +134,6 @@ const StateDetail = () => {
     if (typeof gem === 'string') {
       return { name: gem, location: state.state, category: 'hiddenGem' };
     }
-    // Object format: { name, location, category, whySpecial }
     return { ...gem, category: 'hiddenGem', _whySpecial: gem.whySpecial };
   });
 
@@ -136,6 +142,7 @@ const StateDetail = () => {
   const uniqueGems = hiddenGemEntries.filter(g => !existingNames.has(g.name.toLowerCase()));
 
   const allSpots = [...state.destinations, ...uniqueGems];
+
 
   const filteredDestinations = activeCategory === 'all' 
     ? allSpots 
@@ -293,6 +300,15 @@ const StateDetail = () => {
           </div>
 
           <div className="space-y-8">
+            {/* ── Interactive Map ── */}
+            <div className="glass-dark rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Map className="w-6 h-6 text-brand-cyan" />
+                <h3 className="text-xl font-bold text-white">Map View</h3>
+              </div>
+              <MapSection state={state} />
+            </div>
+
             {/* ── Safety Tips Sidebar ── */}
             <div className="glass-dark rounded-2xl p-6 border-brand-orange/40">
               <div className="flex items-center gap-3 mb-6">
@@ -319,6 +335,68 @@ const StateDetail = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+/* ── Map Section sub-component ── */
+const MapSection = ({ state }) => {
+  const markers = useMemo(() => {
+    const items = [];
+    const stateCenter = stateCoordinates[state.code];
+
+    (state.destinations || []).forEach(dest => {
+      const coords = destinationCoordinates[dest.name];
+      if (coords) {
+        items.push({
+          lat: coords.lat,
+          lng: coords.lng,
+          name: dest.name,
+          location: dest.location,
+          category: dest.category,
+          isGem: false,
+        });
+      }
+    });
+
+    (state.hiddenGems || []).forEach(gem => {
+      const gemName = typeof gem === 'string' ? gem : gem.name;
+      const coords = destinationCoordinates[gemName];
+      if (coords) {
+        items.push({
+          lat: coords.lat,
+          lng: coords.lng,
+          name: gemName,
+          location: state.state,
+          category: 'hidden gem',
+          isGem: true,
+        });
+      }
+    });
+
+    // If no destination markers found, at least use state center
+    if (items.length === 0 && stateCenter) {
+      items.push({
+        lat: stateCenter.lat,
+        lng: stateCenter.lng,
+        name: state.state,
+        location: state.tagline,
+        category: 'state',
+        isGem: false,
+      });
+    }
+
+    return items;
+  }, [state]);
+
+  const stateCenter = stateCoordinates[state.code] || { lat: 20.5937, lng: 78.9629 };
+
+  return (
+    <InteractiveMap
+      markers={markers}
+      center={[stateCenter.lat, stateCenter.lng]}
+      zoom={7}
+      height="350px"
+    />
   );
 };
 

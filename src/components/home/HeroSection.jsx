@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import WaveDivider from '../layout/WaveDivider';
+import SearchBar from '../common/SearchBar';
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,7 @@ const HeroSection = () => {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img 
-          src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2071&auto=format&fit=crop" 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Taj_Mahal_in_March_2004.jpg/1920px-Taj_Mahal_in_March_2004.jpg" 
           alt="Taj Mahal in India" 
           className="w-full h-full object-cover scale-105"
         />
@@ -27,9 +28,14 @@ const HeroSection = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
             Explore India <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-ocean">Smartly</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-200 mb-10 font-light leading-relaxed">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-200 mb-8 font-light leading-relaxed">
             Discover famous destinations, hidden gems, budget stays, safety tips, and smarter travel across every Indian state.
           </p>
+
+          {/* ── Search Bar ── */}
+          <div className="mb-8">
+            <SearchBar variant="hero" />
+          </div>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
@@ -44,12 +50,6 @@ const HeroSection = () => {
             >
               Hidden Places
             </Link>
-            <Link 
-              to="/budget-planner" 
-              className="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-white/5 border border-transparent text-gray-300 hover:text-white rounded-full font-semibold transition-all hover:-translate-y-1 text-center"
-            >
-              Plan My Journey
-            </Link>
           </div>
         </motion.div>
       </div>
@@ -60,15 +60,15 @@ const HeroSection = () => {
         transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
         className="hidden lg:block absolute top-[25%] left-[5%] glass-card p-2 rounded-xl rotate-[-6deg]"
       >
-        <img src="https://images.unsplash.com/photo-1596707328606-258d41fb30fd?q=80&w=200&h=150&fit=crop" alt="Pangong Lake" className="w-[200px] h-[150px] object-cover rounded-lg" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Pangong_lake%2C_ladakh.jpg/800px-Pangong_lake%2C_ladakh.jpg" alt="Pangong Lake" className="w-[200px] h-[150px] object-cover rounded-lg" />
       </motion.div>
 
       <motion.div 
         animate={{ y: [0, 20, 0] }} 
         transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-        className="hidden lg:block absolute bottom-[30%] right-[8%] glass-card p-2 rounded-xl rotate-[8deg]"
+        className="hidden lg:block absolute bottom-[15%] right-[5%] glass-card p-2 rounded-xl flex-col items-center rotate-[4deg]"
       >
-        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=200&h=150&fit=crop" alt="Kerala Backwaters" className="w-[200px] h-[150px] object-cover rounded-lg" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kerala_-_Gods_own_Country.jpg/800px-Kerala_-_Gods_own_Country.jpg" alt="Kerala Backwaters" className="w-[200px] h-[150px] object-cover rounded-lg" />
       </motion.div>
 
       <WaveDivider />

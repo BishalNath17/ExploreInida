@@ -47,12 +47,12 @@ const About = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1515091943-9d5c0ad208c0?q=80&w=800&fit=crop" 
+                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800&fit=crop" 
                 alt="Kerala Travel" 
                 className="rounded-3xl shadow-2xl rotate-3"
               />
               <img 
-                src="https://images.unsplash.com/photo-1582510003544-4d00b7f7416e?q=80&w=400&fit=crop" 
+                src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=400&fit=crop" 
                 alt="Traveler" 
                 className="absolute -bottom-10 -left-10 w-48 h-48 lg:w-64 lg:h-64 rounded-3xl shadow-2xl -rotate-6 border-4 border-brand-navy object-cover"
               />

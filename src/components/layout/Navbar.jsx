@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Compass } from 'lucide-react';
+import { Menu, X, Compass, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SearchBar from '../common/SearchBar';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
 
   const navLinks = [
@@ -31,9 +33,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Close mobile menu & search on route change
   useEffect(() => {
     setIsOpen(false);
+    setShowSearch(false);
   }, [location]);
 
   return (
@@ -65,10 +68,26 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            {/* Search Toggle */}
+            <button
+              onClick={() => setShowSearch(!showSearch)}
+              className="text-gray-200 hover:text-brand-cyan transition-colors p-2"
+              aria-label="Toggle search"
+              id="nav-search-toggle"
+            >
+              {showSearch ? <X className="w-5 h-5" /> : <Search className="w-5 h-5" />}
+            </button>
           </div>
 
           {/* Hamburger Icon */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={() => setShowSearch(!showSearch)}
+              className="text-white hover:text-brand-cyan focus:outline-none p-2"
+              aria-label="Toggle search"
+            >
+              <Search className="w-5 h-5" />
+            </button>
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="text-white hover:text-brand-cyan focus:outline-none p-2"
@@ -78,6 +97,23 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Desktop Search Dropdown */}
+        <AnimatePresence>
+          {showSearch && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25 }}
+              className="overflow-hidden"
+            >
+              <div className="pt-4 pb-2">
+                <SearchBar variant="navbar" />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -91,6 +127,13 @@ const Navbar = () => {
             className="fixed inset-0 top-0 left-0 w-full h-screen bg-brand-navy/95 backdrop-blur-xl z-40 md:hidden pt-24 px-6"
           >
             <div className="flex flex-col gap-6 items-center w-full">
+              {/* Mobile Search */}
+              <div className="w-full max-w-sm">
+                <SearchBar variant="navbar" />
+              </div>
+
+              <div className="w-full h-px bg-white/20"></div>
+
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -103,18 +146,6 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              
-              <div className="w-full h-px bg-white/20 my-6"></div>
-              
-              <div className="flex gap-4">
-                {/* Social placeholders for mobile menu */}
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white cursor-pointer hover:bg-brand-cyan transition-colors">
-                  IG
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white cursor-pointer hover:bg-brand-cyan transition-colors">
-                  FB
-                </div>
-              </div>
             </div>
           </motion.div>
         )}
