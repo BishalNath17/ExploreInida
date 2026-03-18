@@ -10,37 +10,37 @@ export const statesData = [
         "name": "Tirumala Tirupati",
         "location": "Tirupati, Tirupati district",
         "category": "temple",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tirumala_090615.jpg/800px-Tirumala_090615.jpg"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvQL4twTG-6kKRLMgBTSEfPFfBgPJyClHeSg&s/800px-Tirumala_090615.jpg"
       },
       {
         "name": "Araku Valley",
         "location": "Araku, Alluri Sitharama Raju district",
         "category": "hillstation",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Araku_Valley_Andhra_Pradesh.jpg/800px-Araku_Valley_Andhra_Pradesh.jpg"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsrh4cMkghY-aCogm1T4akqCnKd3gPWG9V_w&s/800px-Araku_Valley_Andhra_Pradesh.jpg"
       },
       {
         "name": "Borra Caves",
         "location": "Ananthagiri Hills, Alluri Sitharama Raju district",
         "category": "adventure",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Borra_Caves_Entrance.jpg/800px-Borra_Caves_Entrance.jpg"
+        "image": "https://static.toiimg.com/thumb/msid-121308953,width-1280,height-720,resizemode-4/121308953.jpg/800px-Borra_Caves_Entrance.jpg"
       },
       {
         "name": "Rama Krishna Beach (RK Beach)",
         "location": "Visakhapatnam",
         "category": "beach",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/RK_Beach_Visakhapatnam.jpg/800px-RK_Beach_Visakhapatnam.jpg"
+        "image": "https://vizagtourism.org.in/images/places-to-visit/header/rama-krishna-beach-vizag-tourism-entry-fee-timings-holidays-reviews-header.jpg/800px-RK_Beach_Visakhapatnam.jpg"
       },
       {
         "name": "Simhachalam Temple",
         "location": "Visakhapatnam",
         "category": "temple",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Simhachalam_Temple_Gopuram.jpg/800px-Simhachalam_Temple_Gopuram.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Simhachalam_temple_from_a_hilltop.jpg/800px-Simhachalam_Temple_Gopuram.jpg"
       },
       {
         "name": "Papikondalu",
         "location": "Godavari River region, East/West Godavari",
         "category": "nature",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Papikondalu_Godavari.jpg/800px-Papikondalu_Godavari.jpg"
+        "image": "https://ocean6holidays.com/wp-content/uploads/2025/02/papikondalo-tour.jpg/800px-Papikondalu_Godavari.jpg"
       },
       {
         "name": "Gandikota Fort & Canyon",
@@ -1476,6 +1476,7 @@ export const statesData = [
   {
     "state": "Nagaland",
     "code": "IN-NL",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kohima_24_July_2021.jpeg/960px-Kohima_24_July_2021.jpeg",
     "tagline": "Land of festivals, warriors and wild nature",
     "destinations": [
       {
